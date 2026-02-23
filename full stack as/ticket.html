@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SwiftBus | Your Ticket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card ticket-final">
+            <h2 style="color: #27ae60;">Ticket Confirmed! ✅</h2>
+            <div class="ticket-details">
+                <p><strong>Seat Number:</strong> <span id="sNum"></span></p>
+                <p><strong>Boarding:</strong> <span id="bPoint"></span></p>
+                <p><strong>Dropping:</strong> <span id="dPoint"></span></p>
+                <p><strong>Status:</strong> Confirmed & Paid</p>
+            </div>
+            <button onclick="window.print()" style="background:#34495e">Download Ticket (PDF)</button>
+            <button onclick="window.location.href='index.html'" style="margin-top:10px;">Book Another Ticket</button>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('sNum').innerText = params.get('seat');
+        document.getElementById('bPoint').innerText = params.get('board');
+        document.getElementById('dPoint').innerText = params.get('drop');
+    </script>
+</body>
+</html>

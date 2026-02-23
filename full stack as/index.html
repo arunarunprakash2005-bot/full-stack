@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SwiftBus | Book Your Trip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">SwiftBus 🚍</div>
+    <div class="container">
+        <div class="card">
+            <h2>Find Your Bus</h2>
+            <div class="form-group">
+                <label>From</label>
+                <input type="text" id="fromCity" placeholder="Source City" required>
+            </div>
+            <div class="form-group">
+                <label>To</label>
+                <input type="text" id="toCity" placeholder="Destination City" required>
+            </div>
+            <div class="form-group">
+                <label>Travel Date</label>
+                <input type="date" id="travelDate" required>
+            </div>
+            <button onclick="handleSearch()">Search Available Buses</button>
+        </div>
+    </div>
+
+    <script>
+        function handleSearch() {
+            const from = document.getElementById('fromCity').value;
+            const to = document.getElementById('toCity').value;
+            const date = document.getElementById('travelDate').value;
+
+            if(!from || !to || !date) {
+                alert("Please fill all travel details!");
+                return;
+            }
+            
+            alert("Finding best buses for you...");
+            // Real Navigation: Moves to the seat selection page
+            window.location.href = `seats.html?from=${from}&to=${to}&date=${date}`;
+        }
+    </script>
+</body>
+</html>
